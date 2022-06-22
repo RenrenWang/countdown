@@ -6,5 +6,10 @@ declare type timeType = {
     second: number;
     time: number;
 };
-declare const Countdown: (time: number, callback: (result: timeType) => void, onEnd: () => void) => () => void;
+interface CountdownProps {
+    time: number;
+    callback?: (result: timeType) => void;
+    onEnd?: () => void;
+}
+declare const Countdown: ({ time, callback, onEnd }: CountdownProps) => () => void;
 export default Countdown;
