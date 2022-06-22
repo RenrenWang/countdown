@@ -5,6 +5,7 @@
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "homepage": "https://github.com/RenrenWang/countdown/",
   "scripts": {
     "build": "rm -fr dist && set NODE_ENV=production&& rollup -c rollup.config.js",
     "prepublishOnly": "npm run build"

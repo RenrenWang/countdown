@@ -6,11 +6,12 @@ type timeType = {
   second: number; // 剩余秒数
   time: number; // 剩余毫秒
 };
-const Countdown = (
-  time: number,
-  callback: (result: timeType) => void,
-  onEnd: () => void
-) => {
+interface CountdownProps {
+  time: number; // 倒计时秒数
+  callback?: (result: timeType) => void; // 倒计时回调
+  onEnd?: () => void; // 结束回调
+}
+const Countdown = ({ time, callback, onEnd }: CountdownProps) => {
   const endTime = new Date().getTime() + time * 1000;
   let id = 0;
   const m = () => {
@@ -18,13 +19,14 @@ const Countdown = (
     if (endTime > now) {
       const _time = (endTime - now) / 1000;
       const second = Math.ceil(_time);
-      callback({
-        second,
-        time: _time,
-      });
+      callback &&
+        callback({
+          second,
+          time: _time,
+        });
       id = requestAnimationFrame(m);
     } else {
-      onEnd();
+      onEnd && onEnd();
       id && cancelAnimationFrame(id);
     }
   };
