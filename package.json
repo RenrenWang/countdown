@@ -1,7 +1,7 @@
 {
   "name": "rr-countdown",
-  "version": "1.0.3",
-  "Keywords": "countdown,requestAnimationFrame",
+  "version": "1.0.5",
+  "keyWords": "countdown,requestAnimationFrame",
   "description": "countdown,requestAnimationFrame",
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
