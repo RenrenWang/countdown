@@ -25,7 +25,7 @@ const countdown = Countdown({
 ### `Countdown({time,callback,[onEnd]}):Function`
 执行回调函数销毁倒计时
 
-##参数
+### 参数
 ##### `time`(s)
 倒计时秒数
 
