@@ -1,4 +1,39 @@
 ## 倒计时 countdown
+### 安装
+```javascript
+npm install rr-countdown
+```
+### 使用
+```javascript
+import Countdown from "rr-countdown";
+
+const countdown = Countdown({
+      time: 60,
+      callback: ({ second, time }) => {
+        console.log(`${second}s`);
+      },
+      onEnd: () => {
+        setTime("倒计时结束");
+        alert("倒计时结束");
+      },
+    });
+
+   //销毁倒计时
+   countdown();
+```
+### `Countdown({time,callback,[onEnd]}):Function`
+执行回调函数销毁倒计时
+
+##参数
+#### `time`(s)
+倒计时秒数
+
+#### `callback(({ second, time })`
+倒计时回调
+#### `onEnd()`
+倒计时结束回调
+
+
 ### requestAnimationframe
 实现动画效果的方法比较多，Javascript 中可以通过定时器 setTimeout 来实现，CSS3 中可以使用 transition 和 animation 来实现，HTML5 中的 canvas 也可以实现。除此之外，HTML5 提供一个专门用于请求动画的API，那就是 requestAnimationFrame，顾名思义就是**请求动画帧**。
 
