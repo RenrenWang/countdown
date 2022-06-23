@@ -25,7 +25,7 @@ const countdown = Countdown({
 ### `Countdown({time,callback,[onEnd]}):Function`
 执行回调函数销毁倒计时
 
-### 参数
+#### 相关参数
 ##### `time`(s)
 倒计时秒数
 
@@ -35,7 +35,7 @@ const countdown = Countdown({
 倒计时结束回调
 
 
-### requestAnimationframe
+### 倒计时使用的是requestAnimationframe实现定时器的功能
 实现动画效果的方法比较多，Javascript 中可以通过定时器 setTimeout 来实现，CSS3 中可以使用 transition 和 animation 来实现，HTML5 中的 canvas 也可以实现。除此之外，HTML5 提供一个专门用于请求动画的API，那就是 requestAnimationFrame，顾名思义就是**请求动画帧**。
 
 MDN对该方法的描述：
