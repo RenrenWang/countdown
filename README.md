@@ -7,19 +7,19 @@ npm install rr-countdown
 ```javascript
 import Countdown from "rr-countdown";
 
-const countdown = Countdown({
+const cancel = Countdown({
       time: 60,
-      callback: ({ second, time }) => {
+      onChange: ({ second, time }) => {
         console.log(`${second}s`);
       },
-      onEnd: () => {
+      onFinish: () => {
         setTime("倒计时结束");
         alert("倒计时结束");
       },
     });
 
    //销毁倒计时
-   countdown();
+   cancel();
 ```
 ### Api
 ### `Countdown({time,callback,[onEnd]}):Function`
