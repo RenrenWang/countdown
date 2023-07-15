@@ -1,25 +1,25 @@
 var Countdown = function (_a) {
     var time = _a.time, callback = _a.callback, onEnd = _a.onEnd;
-    var endTime = new Date().getTime() + time * 1000;
+    var endTime = new Date().getTime() + (time - 1) * 1000;
     var id = 0;
-    var m = function () {
+    var handle = function () {
         var now = new Date().getTime();
-        if (endTime > now) {
-            var _time = (endTime - now) / 1000;
-            var second = Math.ceil(_time);
-            callback &&
-                callback({
-                    second: second,
-                    time: _time,
-                });
-            id = requestAnimationFrame(m);
+        var currentTime = (endTime - now) / 1000;
+        var second = Math.ceil(currentTime);
+        callback &&
+            callback({
+                second: second,
+                time: currentTime,
+            });
+        if (endTime >= now) {
+            id = requestAnimationFrame(handle);
         }
         else {
             onEnd && onEnd();
             id && cancelAnimationFrame(id);
         }
     };
-    id = requestAnimationFrame(m);
+    id = requestAnimationFrame(handle);
     return function () {
         id && cancelAnimationFrame(id);
     };
