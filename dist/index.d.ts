@@ -7,9 +7,9 @@ export declare type timeType = {
     time: number;
 };
 export interface CountdownProps {
-    time: number;
-    callback?: (result: timeType) => void;
-    onEnd?: () => void;
+    time?: number;
+    onChange?: (result: timeType) => void;
+    onFinish?: () => void;
 }
-declare const Countdown: ({ time, callback, onEnd }: CountdownProps) => () => void;
+declare const Countdown: ({ time, onChange, onFinish }: CountdownProps) => () => void;
 export default Countdown;

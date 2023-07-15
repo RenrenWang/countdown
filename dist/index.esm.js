@@ -1,21 +1,20 @@
 var Countdown = function (_a) {
-    var time = _a.time, callback = _a.callback, onEnd = _a.onEnd;
+    var _b = _a.time, time = _b === void 0 ? 60 : _b, onChange = _a.onChange, onFinish = _a.onFinish;
     var endTime = new Date().getTime() + (time - 1) * 1000;
     var id = 0;
     var handle = function () {
         var now = new Date().getTime();
         var currentTime = (endTime - now) / 1000;
         var second = Math.ceil(currentTime);
-        callback &&
-            callback({
-                second: second,
-                time: currentTime,
-            });
+        onChange === null || onChange === void 0 ? void 0 : onChange({
+            second: second,
+            time: currentTime,
+        });
         if (endTime >= now) {
             id = requestAnimationFrame(handle);
         }
         else {
-            onEnd && onEnd();
+            onFinish === null || onFinish === void 0 ? void 0 : onFinish();
             id && cancelAnimationFrame(id);
         }
     };

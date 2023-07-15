@@ -29,9 +29,9 @@ const cancel = Countdown({
 ##### `time`(s)
 倒计时秒数
 
-#### `callback(({ second, time })`
+#### `onChange(({ second, time })`
 倒计时回调
-##### `onEnd()`
+##### `onFinish()`
 倒计时结束回调
 
 
